@@ -1,0 +1,4 @@
+github "ReactiveX/RxSwift" ~> 3.0
+github "onevcat/Kingfisher" ~> 3.0
+github "Alamofire/Alamofire" ~> 4.3
+github "RxSwiftCommunity/RxAlamofire" "master"

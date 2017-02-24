@@ -12,6 +12,16 @@
 		149AF0A81E5ACF74000A141D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149AF0A61E5ACF74000A141D /* Main.storyboard */; };
 		149AF0AA1E5ACF74000A141D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149AF0A91E5ACF74000A141D /* Assets.xcassets */; };
 		149AF0AD1E5ACF74000A141D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149AF0AB1E5ACF74000A141D /* LaunchScreen.storyboard */; };
+		149AF0B51E5ACFD1000A141D /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AF0B41E5ACFD1000A141D /* Comic.swift */; };
+		149AF0B71E5AD36F000A141D /* ComicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AF0B61E5AD36F000A141D /* ComicViewModel.swift */; };
+		149AF0B91E5AD7FB000A141D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 149AF0B81E5AD7FB000A141D /* Cartfile */; };
+		149AF0C01E5ADADE000A141D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149AF0BB1E5ADADE000A141D /* Kingfisher.framework */; };
+		149AF0C11E5ADADE000A141D /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149AF0BC1E5ADADE000A141D /* RxBlocking.framework */; };
+		149AF0C21E5ADADE000A141D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149AF0BD1E5ADADE000A141D /* RxCocoa.framework */; };
+		149AF0C31E5ADADE000A141D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149AF0BE1E5ADADE000A141D /* RxSwift.framework */; };
+		149AF0C91E5AE1E1000A141D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149AF0C71E5AE1E1000A141D /* Alamofire.framework */; };
+		149AF0CA1E5AE1E1000A141D /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149AF0C81E5AE1E1000A141D /* RxAlamofire.framework */; };
+		149AF0CD1E5BD754000A141D /* ComicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AF0CC1E5BD754000A141D /* ComicService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,17 @@
 		149AF0A91E5ACF74000A141D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		149AF0AC1E5ACF74000A141D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		149AF0AE1E5ACF74000A141D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		149AF0B41E5ACFD1000A141D /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		149AF0B61E5AD36F000A141D /* ComicViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicViewModel.swift; sourceTree = "<group>"; };
+		149AF0B81E5AD7FB000A141D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		149AF0BB1E5ADADE000A141D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		149AF0BC1E5ADADE000A141D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		149AF0BD1E5ADADE000A141D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		149AF0BE1E5ADADE000A141D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		149AF0BF1E5ADADE000A141D /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		149AF0C71E5AE1E1000A141D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		149AF0C81E5AE1E1000A141D /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAlamofire.framework; path = Carthage/Build/iOS/RxAlamofire.framework; sourceTree = "<group>"; };
+		149AF0CC1E5BD754000A141D /* ComicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149AF0C01E5ADADE000A141D /* Kingfisher.framework in Frameworks */,
+				149AF0C11E5ADADE000A141D /* RxBlocking.framework in Frameworks */,
+				149AF0C91E5AE1E1000A141D /* Alamofire.framework in Frameworks */,
+				149AF0CA1E5AE1E1000A141D /* RxAlamofire.framework in Frameworks */,
+				149AF0C21E5ADADE000A141D /* RxCocoa.framework in Frameworks */,
+				149AF0C31E5ADADE000A141D /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +65,10 @@
 		149AF0961E5ACF74000A141D = {
 			isa = PBXGroup;
 			children = (
+				149AF0B81E5AD7FB000A141D /* Cartfile */,
 				149AF0A11E5ACF74000A141D /* xkcd */,
 				149AF0A01E5ACF74000A141D /* Products */,
+				149AF0BA1E5ADADC000A141D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +84,30 @@
 			isa = PBXGroup;
 			children = (
 				149AF0A21E5ACF74000A141D /* AppDelegate.swift */,
-				149AF0A41E5ACF74000A141D /* ViewController.swift */,
 				149AF0A61E5ACF74000A141D /* Main.storyboard */,
 				149AF0A91E5ACF74000A141D /* Assets.xcassets */,
 				149AF0AB1E5ACF74000A141D /* LaunchScreen.storyboard */,
 				149AF0AE1E5ACF74000A141D /* Info.plist */,
+				149AF0A41E5ACF74000A141D /* ViewController.swift */,
+				149AF0B41E5ACFD1000A141D /* Comic.swift */,
+				149AF0B61E5AD36F000A141D /* ComicViewModel.swift */,
+				149AF0CC1E5BD754000A141D /* ComicService.swift */,
 			);
 			path = xkcd;
+			sourceTree = "<group>";
+		};
+		149AF0BA1E5ADADC000A141D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				149AF0C71E5AE1E1000A141D /* Alamofire.framework */,
+				149AF0C81E5AE1E1000A141D /* RxAlamofire.framework */,
+				149AF0BB1E5ADADE000A141D /* Kingfisher.framework */,
+				149AF0BC1E5ADADE000A141D /* RxBlocking.framework */,
+				149AF0BD1E5ADADE000A141D /* RxCocoa.framework */,
+				149AF0BE1E5ADADE000A141D /* RxSwift.framework */,
+				149AF0BF1E5ADADE000A141D /* RxTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +120,7 @@
 				149AF09B1E5ACF74000A141D /* Sources */,
 				149AF09C1E5ACF74000A141D /* Frameworks */,
 				149AF09D1E5ACF74000A141D /* Resources */,
+				149AF0C51E5ADB03000A141D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -96,6 +143,7 @@
 				TargetAttributes = {
 					149AF09E1E5ACF74000A141D = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6T46SJ3336;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,19 +173,45 @@
 			files = (
 				149AF0AD1E5ACF74000A141D /* LaunchScreen.storyboard in Resources */,
 				149AF0AA1E5ACF74000A141D /* Assets.xcassets in Resources */,
+				149AF0B91E5AD7FB000A141D /* Cartfile in Resources */,
 				149AF0A81E5ACF74000A141D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		149AF0C51E5ADB03000A141D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxAlamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		149AF09B1E5ACF74000A141D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149AF0CD1E5BD754000A141D /* ComicService.swift in Sources */,
 				149AF0A51E5ACF74000A141D /* ViewController.swift in Sources */,
 				149AF0A31E5ACF74000A141D /* AppDelegate.swift in Sources */,
+				149AF0B71E5AD36F000A141D /* ComicViewModel.swift in Sources */,
+				149AF0B51E5ACFD1000A141D /* Comic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +332,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6T46SJ3336;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = xkcd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glpgs-dev.xkcd";
@@ -270,6 +349,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6T46SJ3336;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = xkcd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glpgs-dev.xkcd";
