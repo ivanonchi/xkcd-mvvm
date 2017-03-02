@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class ViewController: UIViewController {
+class ComicViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var comicImageView: UIImageView!
@@ -27,8 +27,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         // From ViewModel
+
         comicViewModel.title.asDriver().drive(titleLabel.rx.text).addDisposableTo(disposeBag)
         comicViewModel.imageUrl.asDriver().drive(onNext: { [weak self](urlString) in
             let url = URL(string: urlString)

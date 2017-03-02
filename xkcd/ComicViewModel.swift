@@ -22,7 +22,8 @@ class ComicViewModel {
 
     var isNextEnabled: Driver<Bool> {
         return Driver.combineLatest(self.latestComic.asDriver(), self.currentComic.asDriver(), resultSelector: { (latest, current) -> Bool in
-            return  latest?.img != current?.img
+            guard let latestNum = latest?.num, let currentNum = current?.num else { return false }
+            return  latestNum != currentNum
         })
     }
 
@@ -31,9 +32,11 @@ class ComicViewModel {
             guard let num = comic?.num else {
                 return false
             }
-            return num > 0
+            return num > 1
         })
     }
+
+    private var formatter = DateFormatter()
 
 
     init() {
@@ -42,10 +45,11 @@ class ComicViewModel {
         imageUrl = Variable<String>("")
         latestComic = Variable<Comic?>(nil)
         currentComic = Variable<Comic?>(nil)
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
     }
 
     func getLatestComic() {
-
         let service = ComicService()
         service.getLatestComic().subscribe(onNext: { (comic) in
             guard let comic = comic else {
@@ -53,12 +57,10 @@ class ComicViewModel {
             }
             self.latestComic.value = comic
             self.updateViewModel(comic: comic)
-        })
-        .addDisposableTo(disposeBag)
+        }).addDisposableTo(disposeBag)
     }
 
     func getPreviousComic() {
-
         guard let current = currentComic.value?.num, current > 0 else {
             return
         }
@@ -70,8 +72,7 @@ class ComicViewModel {
                 return
             }
             self.updateViewModel(comic: comic)
-        })
-        .addDisposableTo(disposeBag)
+        }).addDisposableTo(disposeBag)
     }
 
     func getNextComic() {
@@ -88,8 +89,7 @@ class ComicViewModel {
                 return
             }
             self.updateViewModel(comic: comic)
-        })
-            .addDisposableTo(disposeBag)
+        }).addDisposableTo(disposeBag)
     }
 
 
@@ -98,8 +98,8 @@ class ComicViewModel {
         self.title.value = comic.title ?? ""
         self.imageUrl.value = comic.img ?? ""
 
-        if let year = comic.year, let month = comic.month, let day = comic.day {
-            self.date.value = "\(year)年\(month)月\(day)日"
+        if let date = comic.date {
+            self.date.value = formatter.string(from: date)
         } else {
             self.date.value = ""
         }

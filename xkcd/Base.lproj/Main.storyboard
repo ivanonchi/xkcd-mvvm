@@ -1,18 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Comic View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="xkcd" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ComicViewController" customModule="xkcd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,36 +22,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB4-LP-GIX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB4-LP-GIX">
                                 <rect key="frame" x="0.0" y="28" width="375" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciJ-5W-Ico">
-                                <rect key="frame" x="16" y="57" width="343" height="385"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciJ-5W-Ico">
+                                <rect key="frame" x="16" y="57" width="343" height="524"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbz-7C-J88">
-                                <rect key="frame" x="0.0" y="450" width="375" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oY-5h-MLs">
-                                <rect key="frame" x="10" y="515" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oY-5h-MLs">
+                                <rect key="frame" x="16" y="617" width="59" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="G9b-Hn-3Py"/>
+                                </constraints>
                                 <state key="normal" title="Previous"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeh-KT-3aS">
-                                <rect key="frame" x="320" y="515" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeh-KT-3aS">
+                                <rect key="frame" x="327" y="617" width="32" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="ZtD-iY-YGF"/>
+                                </constraints>
                                 <state key="normal" title="Next"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbz-7C-J88">
+                                <rect key="frame" x="0.0" y="588.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eeh-KT-3aS" secondAttribute="bottom" constant="20" id="0oW-kb-zxp"/>
+                            <constraint firstItem="LB4-LP-GIX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="6oV-FY-sUC"/>
+                            <constraint firstItem="Fbz-7C-J88" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="7YW-Hc-DRq"/>
+                            <constraint firstItem="Fbz-7C-J88" firstAttribute="top" secondItem="ciJ-5W-Ico" secondAttribute="bottom" constant="7.5" id="8Y8-ok-zpb"/>
+                            <constraint firstItem="LB4-LP-GIX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="D1i-WO-LPn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8oY-5h-MLs" secondAttribute="bottom" constant="20" id="L0m-wL-7ej"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eeh-KT-3aS" secondAttribute="trailing" id="TGF-ub-c5z"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fbz-7C-J88" secondAttribute="bottom" constant="58" id="Wn2-Ip-XiO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fbz-7C-J88" secondAttribute="trailing" constant="-16" id="cGH-KE-Joy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ciJ-5W-Ico" secondAttribute="trailing" id="p2M-3G-kt7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="8oY-5h-MLs" secondAttribute="leading" id="peM-aO-0dT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ciJ-5W-Ico" secondAttribute="leading" id="rai-rI-eNK"/>
+                            <constraint firstItem="ciJ-5W-Ico" firstAttribute="top" secondItem="LB4-LP-GIX" secondAttribute="bottom" constant="8" id="uPU-JM-1mm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LB4-LP-GIX" secondAttribute="trailing" constant="-16" id="xiM-YB-Es0"/>
+                            <constraint firstItem="LB4-LP-GIX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zGy-AD-1ne"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="captionLabel" destination="Fbz-7C-J88" id="69L-K8-aeK"/>
