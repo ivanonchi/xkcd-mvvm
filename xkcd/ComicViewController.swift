@@ -52,8 +52,6 @@ class ComicViewController: UIViewController {
         }).addDisposableTo(disposeBag)
 
         comicViewModel.getLatestComic()
-
-
     }
 
     override func didReceiveMemoryWarning() {

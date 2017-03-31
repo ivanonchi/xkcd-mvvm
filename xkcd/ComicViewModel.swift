@@ -37,6 +37,7 @@ class ComicViewModel {
     }
 
     private var formatter = DateFormatter()
+    private let service = ComicService()
 
 
     init() {
@@ -50,7 +51,6 @@ class ComicViewModel {
     }
 
     func getLatestComic() {
-        let service = ComicService()
         service.getLatestComic().subscribe(onNext: { (comic) in
             guard let comic = comic else {
                 return
@@ -64,9 +64,6 @@ class ComicViewModel {
         guard let current = currentComic.value?.num, current > 0 else {
             return
         }
-
-        let service = ComicService()
-
         service.getComic(num: current - 1).subscribe(onNext: { (comic) in
             guard let comic = comic else {
                 return
@@ -81,9 +78,6 @@ class ComicViewModel {
             current < latest else {
             return
         }
-
-        let service = ComicService()
-
         service.getComic(num: current + 1).subscribe(onNext: { (comic) in
             guard let comic = comic else {
                 return
@@ -91,7 +85,6 @@ class ComicViewModel {
             self.updateViewModel(comic: comic)
         }).addDisposableTo(disposeBag)
     }
-
 
     private func updateViewModel(comic: Comic) {
         self.currentComic.value = comic
