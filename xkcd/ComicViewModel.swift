@@ -17,12 +17,12 @@ class ComicViewModel {
     var imageUrl: Variable<String>
     var disposeBag = DisposeBag()
 
-    var latestComic: Variable<Comic?>
+    var latestComicNum: Variable<Int?>
     var currentComic: Variable<Comic?>
 
     var isNextEnabled: Driver<Bool> {
-        return Driver.combineLatest(self.latestComic.asDriver(), self.currentComic.asDriver(), resultSelector: { (latest, current) -> Bool in
-            guard let latestNum = latest?.num, let currentNum = current?.num else { return false }
+        return Driver.combineLatest(self.latestComicNum.asDriver(), self.currentComic.asDriver(), resultSelector: { (latestNum, current) -> Bool in
+            guard let latestNum = latestNum, let currentNum = current?.num else { return false }
             return  latestNum != currentNum
         })
     }
@@ -44,7 +44,7 @@ class ComicViewModel {
         title = Variable<String>("")
         date = Variable<String>("")
         imageUrl = Variable<String>("")
-        latestComic = Variable<Comic?>(nil)
+        latestComicNum = Variable<Int?>(nil)
         currentComic = Variable<Comic?>(nil)
         formatter.dateStyle = .long
         formatter.timeStyle = .none
@@ -55,7 +55,7 @@ class ComicViewModel {
             guard let comic = comic else {
                 return
             }
-            self.latestComic.value = comic
+            self.latestComicNum.value = comic.num
             self.updateViewModel(comic: comic)
         }).addDisposableTo(disposeBag)
     }
@@ -74,7 +74,7 @@ class ComicViewModel {
 
     func getNextComic() {
         guard let current = currentComic.value?.num,
-            let latest = latestComic.value?.num,
+            let latest = latestComicNum.value,
             current < latest else {
             return
         }
