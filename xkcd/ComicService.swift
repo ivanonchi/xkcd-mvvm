@@ -22,15 +22,15 @@ class ComicService {
 
     func getLatestComic() -> Observable<Comic?> {
         return RxAlamofire.requestJSON(.get, latestURL)
-            .map {_, json in self.mapComic(json: json)}
+            .map {_, json in self.comicFromJson(json: json)}
     }
 
     func getComic(num: Int) -> Observable<Comic?> {
         return RxAlamofire.requestJSON(.get, comicURL(num))
-            .map {_, json in self.mapComic(json: json)}
+            .map {_, json in self.comicFromJson(json: json)}
     }
 
-    func mapComic(json: Any) -> Comic? {
+    func comicFromJson(json: Any) -> Comic? {
         if let dict = json as? [String: AnyObject] {
             return Comic(dict)
         }
