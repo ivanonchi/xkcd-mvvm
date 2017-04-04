@@ -15,30 +15,17 @@ class ComicViewModel {
     var title: Variable<String>
     var date: Variable<String>
     var imageUrl: Variable<String>
-    var disposeBag = DisposeBag()
 
     var latestComicNum: Variable<Int?>
     var currentComic: Variable<Comic?>
 
-    var isNextEnabled: Driver<Bool> {
-        return Driver.combineLatest(self.latestComicNum.asDriver(), self.currentComic.asDriver(), resultSelector: { (latestNum, current) -> Bool in
-            guard let latestNum = latestNum, let currentNum = current?.num else { return false }
-            return  latestNum != currentNum
-        }).distinctUntilChanged()
-    }
-
-    var isPreviousEnabled: Driver<Bool> {
-        return currentComic.asDriver().map({ (comic) -> Bool in
-            guard let num = comic?.num else {
-                return false
-            }
-            return num > 1
-        }).distinctUntilChanged()
-    }
+    var isNextEnabled: Driver<Bool>
+    var isPreviousEnabled: Driver<Bool>
 
     private var formatter = DateFormatter()
     private let service = ComicService()
 
+    var disposeBag = DisposeBag()
 
     init() {
         title = Variable<String>("")
@@ -48,6 +35,18 @@ class ComicViewModel {
         currentComic = Variable<Comic?>(nil)
         formatter.dateStyle = .long
         formatter.timeStyle = .none
+
+        isNextEnabled = Driver.combineLatest(self.latestComicNum.asDriver(), self.currentComic.asDriver(), resultSelector: { (latestNum, current) -> Bool in
+            guard let latestNum = latestNum, let currentNum = current?.num else { return false }
+            return  latestNum != currentNum
+        }).distinctUntilChanged()
+
+        isPreviousEnabled = currentComic.asDriver().map({ (comic) -> Bool in
+            guard let num = comic?.num else {
+                return false
+            }
+            return num > 1
+        }).distinctUntilChanged()
     }
 
     func getLatestComic() {
