@@ -30,8 +30,7 @@ class ComicViewController: UIViewController {
         // From ViewModel
 
         comicViewModel.title.asDriver().drive(titleLabel.rx.text).disposed(by: disposeBag)
-        comicViewModel.imageUrl.asDriver().drive(onNext: { [weak self](urlString) in
-            let url = URL(string: urlString)
+        comicViewModel.imageUrl.asDriver().drive(onNext: { [weak self](url) in
             self?.comicImageView.kf.setImage(with: url)
         }).disposed(by: disposeBag)
 

@@ -14,7 +14,7 @@ import RxAlamofire
 class ComicViewModel {
     var title: Variable<String>
     var date: Variable<String>
-    var imageUrl: Variable<String>
+    var imageUrl: Variable<URL?>
 
     var latestComicNum: Variable<Int?>
     var currentComic: Variable<Comic?>
@@ -30,7 +30,7 @@ class ComicViewModel {
     init() {
         title = Variable<String>("")
         date = Variable<String>("")
-        imageUrl = Variable<String>("")
+        imageUrl = Variable<URL?>(nil)
         latestComicNum = Variable<Int?>(nil)
         currentComic = Variable<Comic?>(nil)
         formatter.dateStyle = .long
@@ -88,7 +88,10 @@ class ComicViewModel {
     private func updateViewModel(comic: Comic) {
         self.currentComic.value = comic
         self.title.value = comic.title ?? ""
-        self.imageUrl.value = comic.img ?? ""
+
+        if let urlString = comic.img, let url = URL(string: urlString) {
+            self.imageUrl.value = url
+        }
 
         if let date = comic.date {
             self.date.value = formatter.string(from: date)
