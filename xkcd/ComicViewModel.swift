@@ -57,7 +57,7 @@ class ComicViewModel {
             }
             self.latestComicNum.value = comic.num
             self.updateViewModel(comic: comic)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     func getPreviousComic() {
@@ -69,7 +69,7 @@ class ComicViewModel {
                 return
             }
             self.updateViewModel(comic: comic)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     func getNextComic() {
@@ -83,7 +83,7 @@ class ComicViewModel {
                 return
             }
             self.updateViewModel(comic: comic)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     private func updateViewModel(comic: Comic) {

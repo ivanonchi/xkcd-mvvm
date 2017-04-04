@@ -29,27 +29,27 @@ class ComicViewController: UIViewController {
 
         // From ViewModel
 
-        comicViewModel.title.asDriver().drive(titleLabel.rx.text).addDisposableTo(disposeBag)
+        comicViewModel.title.asDriver().drive(titleLabel.rx.text).disposed(by: disposeBag)
         comicViewModel.imageUrl.asDriver().drive(onNext: { [weak self](urlString) in
             let url = URL(string: urlString)
             self?.comicImageView.kf.setImage(with: url)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
-        comicViewModel.date.asDriver().drive(captionLabel.rx.text).addDisposableTo(disposeBag)
+        comicViewModel.date.asDriver().drive(captionLabel.rx.text).disposed(by: disposeBag)
 
-        comicViewModel.isNextEnabled.drive(nextButton.rx.isEnabled).addDisposableTo(disposeBag)
-        comicViewModel.isPreviousEnabled.drive(previousButton.rx.isEnabled).addDisposableTo(disposeBag)
+        comicViewModel.isNextEnabled.drive(nextButton.rx.isEnabled).disposed(by: disposeBag)
+        comicViewModel.isPreviousEnabled.drive(previousButton.rx.isEnabled).disposed(by: disposeBag)
 
 
         // To View Model
 
         previousButton.rx.tap.asDriver().drive(onNext: {
             self.comicViewModel.getPreviousComic()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         nextButton.rx.tap.asDriver().drive(onNext: {
             self.comicViewModel.getNextComic()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         comicViewModel.getLatestComic()
     }
