@@ -24,7 +24,7 @@ class ComicViewModel {
         return Driver.combineLatest(self.latestComicNum.asDriver(), self.currentComic.asDriver(), resultSelector: { (latestNum, current) -> Bool in
             guard let latestNum = latestNum, let currentNum = current?.num else { return false }
             return  latestNum != currentNum
-        })
+        }).distinctUntilChanged()
     }
 
     var isPreviousEnabled: Driver<Bool> {
@@ -33,7 +33,7 @@ class ComicViewModel {
                 return false
             }
             return num > 1
-        })
+        }).distinctUntilChanged()
     }
 
     private var formatter = DateFormatter()
